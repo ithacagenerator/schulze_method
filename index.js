@@ -2,6 +2,11 @@
 // # Input: d[i,j], the number of voters who prefer candidate i to candidate j.
 // # Output: p[i,j], the strength of the strongest path from candidate i to candidate j.
 
+
+var candidates = [
+  'A', 'B', 'C', 'D', 'E'
+];
+
 var ballots = [
   ['A', 'C', 'B', 'E', 'D'],
   ['A', 'C', 'B', 'E', 'D'],
@@ -55,10 +60,6 @@ var ballots = [
   ['E', 'B', 'A', 'D', 'C'],
   ['E', 'B', 'A', 'D', 'C'],
   ['E', 'B', 'A', 'D', 'C'],
-];
-
-var candidates = [
-  'A', 'B', 'C', 'D', 'E'
 ];
 
 function indexOf(ballot, candidate) {
