@@ -1,4 +1,7 @@
 // jshint esversion: 6
+
+// Based on https://en.wikipedia.org/wiki/Schulze_method
+
 // # Input: d[i,j], the number of voters who prefer candidate i to candidate j.
 // # Output: p[i,j], the strength of the strongest path from candidate i to candidate j.
 
