@@ -114,7 +114,10 @@ sorted_candidates.sort((a, b) => {
   return 0;
 });
 
-console.log('rank-order');
+console.log('rank-order [most preferred first]');
 sorted_candidates.forEach(v => console.log(v));
-console.log('ties');
-tied_pairs.forEach(v => console.log(v));
+
+if(tied_pairs.length > 0) {
+  console.log('\nties');
+  tied_pairs.forEach(v => console.log(v));
+}
