@@ -8,7 +8,10 @@
 
 var ballots = require('./ballots.json');
 var candidates = Array.from(ballots.reduce((t, v) => {
-  v.forEach(vv => t.add(...vv));
+  v.forEach(vv => {
+    vv = Array.from(vv);
+    t = new Set(Array.from(t).concat(vv));
+  });
   return t;
 }, new Set()));
 
@@ -56,7 +59,7 @@ for(var i = 0; i < candidates.length; i++){
 
 // console.log(JSON.stringify(d, null, 2));
 console.log('prefs');
-console.log(d);
+d.forEach(v => console.log(v));
 
 p = [];
 for(var i = 0; i < candidates.length; i++) {
@@ -88,7 +91,7 @@ for(var i = 0; i < candidates.length; i++) {
 
 // console.log(JSON.stringify(p, null, 2));
 console.log('powers');
-console.log(p);
+p.forEach(v => console.log(v));
 
 // sort the candidates
 tied_pairs = [];
@@ -112,6 +115,6 @@ sorted_candidates.sort((a, b) => {
 });
 
 console.log('rank-order');
-console.log(sorted_candidates);
+sorted_candidates.forEach(v => console.log(v));
 console.log('ties');
-console.log(tied_pairs);
+tied_pairs.forEach(v => console.log(v));
