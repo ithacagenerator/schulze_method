@@ -15,6 +15,7 @@ var candidates = Array.from(ballots.reduce((t, v) => {
   return t;
 }, new Set()));
 
+console.log('\ncandidates');
 console.log(candidates);
 
 function indexOf(ballot, candidate) {
@@ -58,7 +59,7 @@ for(var i = 0; i < candidates.length; i++){
 }
 
 // console.log(JSON.stringify(d, null, 2));
-console.log('prefs');
+console.log('\nprefs');
 d.forEach(v => console.log(v));
 
 p = [];
@@ -90,7 +91,7 @@ for(var i = 0; i < candidates.length; i++) {
 }
 
 // console.log(JSON.stringify(p, null, 2));
-console.log('powers');
+console.log('\npowers');
 p.forEach(v => console.log(v));
 
 // sort the candidates
@@ -114,10 +115,12 @@ sorted_candidates.sort((a, b) => {
   return 0;
 });
 
-console.log('rank-order [most preferred first]');
+console.log('\nrank-order [most preferred first]');
 sorted_candidates.forEach(v => console.log(v));
 
 if(tied_pairs.length > 0) {
   console.log('\nties');
   tied_pairs.forEach(v => console.log(v));
 }
+
+console.log('\ndone');
