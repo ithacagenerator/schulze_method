@@ -6,7 +6,8 @@ var _ = require('lodash');
 var filename = argv.csv;
 
 var csv = Papa.parse(fs.readFileSync(filename, 'utf8'), {
-  header: true
+  header: true,
+  skipEmptyLines: true
 });
 
 var keys = Object.keys(csv.data[0]);

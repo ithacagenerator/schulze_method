@@ -12,6 +12,8 @@ var candidates = Array.from(ballots.reduce((t, v) => {
   return t;
 }, new Set()));
 
+console.log(candidates);
+
 function indexOf(ballot, candidate) {
   // ballot is an array
   // each element of the array might be a single string, or an array of strings
@@ -53,7 +55,8 @@ for(var i = 0; i < candidates.length; i++){
 }
 
 // console.log(JSON.stringify(d, null, 2));
-console.log('prefs', d);
+console.log('prefs');
+console.log(d);
 
 p = [];
 for(var i = 0; i < candidates.length; i++) {
@@ -84,7 +87,8 @@ for(var i = 0; i < candidates.length; i++) {
 }
 
 // console.log(JSON.stringify(p, null, 2));
-console.log('powers', p);
+console.log('powers');
+console.log(p);
 
 // sort the candidates
 tied_pairs = [];
@@ -107,5 +111,7 @@ sorted_candidates.sort((a, b) => {
   return 0;
 });
 
-console.log('rank-order', sorted_candidates);
-console.log('ties', tied_pairs);
+console.log('rank-order');
+console.log(sorted_candidates);
+console.log('ties');
+console.log(tied_pairs);
