@@ -6,64 +6,11 @@
 // # Output: p[i,j], the strength of the strongest path from candidate i to candidate j.
 
 
-var candidates = [
-  'A', 'B', 'C', 'D', 'E'
-];
-
-var ballots = [
-  ['A', 'C', 'B', 'E', 'D'],
-  ['A', 'C', 'B', 'E', 'D'],
-  ['A', 'C', 'B', 'E', 'D'],
-  ['A', 'C', 'B', 'E', 'D'],
-  ['A', 'C', 'B', 'E', 'D'],
-
-  ['A', 'D', 'E', 'C', 'B'],
-  ['A', 'D', 'E', 'C', 'B'],
-  ['A', 'D', 'E', 'C', 'B'],
-  ['A', 'D', 'E', 'C', 'B'],
-  ['A', 'D', 'E', 'C', 'B'],
-
-  ['B', 'E', 'D', 'A', 'C'],
-  ['B', 'E', 'D', 'A', 'C'],
-  ['B', 'E', 'D', 'A', 'C'],
-  ['B', 'E', 'D', 'A', 'C'],
-  ['B', 'E', 'D', 'A', 'C'],
-  ['B', 'E', 'D', 'A', 'C'],
-  ['B', 'E', 'D', 'A', 'C'],
-  ['B', 'E', 'D', 'A', 'C'],
-
-  ['C', 'A', 'B', 'E', 'D'],
-  ['C', 'A', 'B', 'E', 'D'],
-  ['C', 'A', 'B', 'E', 'D'],
-
-  ['C', 'A', 'E', 'B', 'D'],
-  ['C', 'A', 'E', 'B', 'D'],
-  ['C', 'A', 'E', 'B', 'D'],
-  ['C', 'A', 'E', 'B', 'D'],
-  ['C', 'A', 'E', 'B', 'D'],
-  ['C', 'A', 'E', 'B', 'D'],
-  ['C', 'A', 'E', 'B', 'D'],
-
-  ['C', 'B', 'A', 'D', 'E'],
-  ['C', 'B', 'A', 'D', 'E'],
-
-  ['D', 'C', 'E', 'B', 'A'],
-  ['D', 'C', 'E', 'B', 'A'],
-  ['D', 'C', 'E', 'B', 'A'],
-  ['D', 'C', 'E', 'B', 'A'],
-  ['D', 'C', 'E', 'B', 'A'],
-  ['D', 'C', 'E', 'B', 'A'],
-  ['D', 'C', 'E', 'B', 'A'],
-
-  ['E', 'B', 'A', 'D', 'C'],
-  ['E', 'B', 'A', 'D', 'C'],
-  ['E', 'B', 'A', 'D', 'C'],
-  ['E', 'B', 'A', 'D', 'C'],
-  ['E', 'B', 'A', 'D', 'C'],
-  ['E', 'B', 'A', 'D', 'C'],
-  ['E', 'B', 'A', 'D', 'C'],
-  ['E', 'B', 'A', 'D', 'C'],
-];
+var ballots = require('./ballots.json');
+var candidates = Array.from(ballots.reduce((t, v) => {
+  v.forEach(vv => t.add(...vv));
+  return t;
+}, new Set()));
 
 function indexOf(ballot, candidate) {
   // ballot is an array
