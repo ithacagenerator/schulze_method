@@ -12,6 +12,6 @@
     "lodash": "^4.17.11",
     "minimist": "^1.2.0",
     "moment": "^2.29.0",
-    "papaparse": "^4.6.3"
+    "papaparse": "^5.2.0"
   }
 }
