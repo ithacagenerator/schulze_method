@@ -28,6 +28,8 @@ var csv = Papa.parse(fs.readFileSync(filename, 'utf8'), {
   skipEmptyLines: true
 });
 
+console.log(`Ballots file contains ${csv.data.length} ballots`);
+
 var keys = Object.keys(csv.data[0]);
 // process ballots by first looking for a timestamp field
 if (keys.includes(timestamp_field)) {
@@ -116,5 +118,6 @@ formattedBallots = formattedBallots.map(v => {
 });
 
 // console.log(formattedBallots);
+console.log(`Final Ballots file contains ${formattedBallots.length} ballots`);
 
 fs.writeFileSync('./ballots.json', JSON.stringify(formattedBallots, null, 2), {encoding: 'utf8'});
